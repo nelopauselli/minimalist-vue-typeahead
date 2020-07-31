@@ -18,7 +18,7 @@
         <h1>{{ title }}</h1>
         <div class="form-group">
             <label>type a head</label>
-            <typeahead v-model="country" v-bind:min-length="3" v-bind:url="'/data/countries.json'" v-bind:property-name="'name'"></typeahead>
+            <typeahead v-model="country" v-bind:min-length="3" url="/data/countries.json" property-name="name"></typeahead>
         </div>
         <div class="form-group">
             El valor ingresado es <strong>{{country}}</strong>
