@@ -18,7 +18,7 @@
         <h1>{{ title }}</h1>
         <div class="form-group">
             <label>type a head</label>
-            <typeahead v-model="country" v-bind:suggestions="countriesNames" v-bind:min-length="3"></typeahead>
+            <typeahead v-model="country" v-bind:suggestions="countries" v-bind:min-length="3"></typeahead>
         </div>
         <div class="form-group">
             El valor ingresado es <strong>{{country}}</strong>
@@ -42,14 +42,12 @@
                 country: '',
                 title: 'Paises',
                 countries: [],
-                countriesNames: []
             },
             mounted() {
                 axios
                     .get('/data/countries.json')
                     .then(response => {
-                        this.countries = response.data.slice(0, 10);
-                        this.countriesNames = response.data.map(c => c.name);
+                        this.countries = response.data.map(c => c.name);
                     });
             }
         });
