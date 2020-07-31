@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PoC</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{ title }}</h1>
+        <country v-for="c in countries" v-bind:item="c" v-bind:key="c.code"></country>
+    </div>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
+    <script>
+        Vue.component("country", {
+            props: ['item'],
+            template: '<div>{{ item.name }}</div>'
+        });
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                title: 'Paises',
+                countries: []
+            },
+            mounted() {
+                axios
+                    .get('/data/countries.json')
+                    .then(response => (this.countries = response.data))
+            }
+        });
+    </script>
+</body>
+
+</html>
