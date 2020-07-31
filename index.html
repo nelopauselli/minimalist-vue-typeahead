@@ -17,11 +17,18 @@
     <div class="container" id="app">
         <h1>{{ title }}</h1>
         <div class="form-group">
-            <label>type a head</label>
+            <label>Pa&iacute;s</label>
             <typeahead v-model="country" v-bind:min-length="3" url="/data/countries.json" property-name="name"></typeahead>
         </div>
         <div class="form-group">
-            El valor ingresado es <strong>{{country}}</strong>
+            <label>Colores</label>
+            <typeahead v-model="color" v-bind:min-length="3" url="/data/colors.json"></typeahead>
+        </div>
+        <div class="form-group">
+            El pa&iacute;s es <strong>{{country}}</strong>
+        </div>
+        <div class="form-group">
+            El color es <strong>{{color}}</strong>
         </div>
     </div>
 
@@ -40,6 +47,7 @@
             el: '#app',
             data: {
                 country: '',
+                color:'',
                 title: 'Paises'
             }
         });
