@@ -13,20 +13,38 @@
 
 <body>
     <div class="container" id="app">
-        <h1 class="text-center my-4">{{ title }}</h1>
-        <div class="form-group">
-            <label>Country</label>
-            <typeahead v-model="country" v-bind:min-length="3" url="/data/countries.json" property-name="name"></typeahead>
+        <h1 class="text-center my-4">Minimalist typeahead for Vue and Bootstrap 4</h1>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label>Country</label>
+                    <typeahead v-model="country" v-bind:min-length="3" url="/data/countries.json" property-name="name">
+                    </typeahead>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label>Color</label>
-            <typeahead v-model="color" v-bind:min-length="1" url="/data/colors.json"></typeahead>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label>Color 1</label>
+                    <typeahead v-model="color1" v-bind:min-length="1" url="/data/colors.json"></typeahead>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label>Color 2</label>
+                    <typeahead v-model="color2" v-bind:min-length="1" url="/data/colors.json"></typeahead>
+                </div>
+            </div>
         </div>
         <div class="form-group">
             The country is <strong>{{country}}</strong>
         </div>
         <div class="form-group">
-            The color is <strong>{{color}}</strong>
+            The color 1 is <strong>{{color1}}</strong>
+        </div>
+        <div class="form-group">
+            The color 2 is <strong>{{color2}}</strong>
         </div>
     </div>
 
@@ -40,13 +58,13 @@
 
     <script src="/lib/typeahead/typeahead.js"></script>
     <script>
-        
+
         var app = new Vue({
             el: '#app',
             data: {
                 country: '',
-                color:'Blue',
-                title: 'Minimalist theahead for Vue'
+                color1: 'Blue',
+                color2: 'Blue'
             }
         });
     </script>
